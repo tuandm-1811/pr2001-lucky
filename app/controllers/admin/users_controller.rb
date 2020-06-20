@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.new user_params
     if @user.save
-    	log_in user
+      log_in @user
       flash[:success] = 'User created successfuly'
       redirect_to admin_users_path
     else
@@ -37,6 +37,6 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit :user_name, :email, :password , :password_confirmation, :birth, :sex
+    params.require(:user).permit :user_name, :email, :password, :password_confirmation, :birth, :sex
   end
 end

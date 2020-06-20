@@ -1,4 +1,9 @@
 @import "bootstrap";
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
 #products{
 	border-collapse: collapse;
   	width: 100%;
@@ -7,10 +12,88 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
-#products tr:hover {background-color: #ddd;}
+#products tr:hover {background-color:#e65805cf;}
 #products th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  color: white;
+  background-color: #e8ab4ecf;
 }
+.btn-origin{
+  background-color: #e65805cf;
+  border-color: #e65805cf;
+  float: right;
+  margin-bottom: 2em;
+}
+.nav-link{
+  color: black;
+}
+.nav-link:hover{
+  color: #e65805cf;
+}
+.pagination {
+  margin-top: 1em;
+}
+.page-item.active .page-link {
+  background-color: #d0d0d0 !important;
+  border-color: #81838659 !important;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.notification{
+  margin-top: 28px;
+}
+
+/*sign up*/
+.main {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .login-or {
+    position: relative;
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+            margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+  }
+  .hr-or {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  h3 {
+    text-align: center;
+    line-height: 300%;
+  }
+/*------------------*/

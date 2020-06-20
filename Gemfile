@@ -25,7 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
 # # gem 'annotate'
-gem 'bootstrap-kaminari-views' # giao diện đẹp cho phân trang
+gem 'bootstrap4-kaminari-views' # giao diện đẹp cho phân trang
+gem 'byebug'
 gem 'kaminari'
 gem 'ransack' # tạo form tìm kiếm
 gem 'rubocop'

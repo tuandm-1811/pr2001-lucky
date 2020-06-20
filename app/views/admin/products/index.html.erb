@@ -1,5 +1,12 @@
 <div class="container">
-	<h2>All Products</h2>
+	<h2>List Products</h2>
+	<%=link_to "Create new product", new_admin_product_path, class: "btn btn-origin" %>
+	   <%= form_tag @product, url: admin_products_path, :method => 'get', :class => "form-inline" do %>
+      <div>
+        <%= text_field_tag :search, params[:search], class:'form-control mr-sm-2',placeholder: 'Looking for products' %>
+        <%= submit_tag "Search", :name => nil, class: 'btn btn-origin' %>
+      </div>
+    <% end %>
 	<table id="products">
 		<tr>
 			<th>NAME PRODUCT</th>
@@ -13,5 +20,5 @@
 			<%= render 'product' , product: product%>
 		<% end %>
 	</table>
-	<%=link_to "Create new product",new_admin_product_path,class: "btn btn-primary"%>
+	<%= paginate @products, theme: 'twitter-bootstrap-4' %>	
 </div>

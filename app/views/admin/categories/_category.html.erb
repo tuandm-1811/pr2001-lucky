@@ -1,12 +1,12 @@
 <tr>
 	<td><%= index + 1 %></td>
-	<td><%= category.name_category%></td>
+	<td><%= category.name_category %></td>
 	<td>	
-    <%= link_to edit_admin_category_path(category) do%>
-		  <i class='fas fa-edit' style='font-size:24px'></i>
+    <%= link_to edit_admin_category_path(category) do %>
+		  <i class='fas fa-edit' style='font-size:24px; color: black'></i>
     <% end %>
 		<%= link_to admin_category_path(category), method: :delete do %>
-			<i class='far fa-trash-alt' style='font-size:24px'></i>
+			<i class='far fa-trash-alt' style='font-size:24px; color: black'></i>
 		<% end %>
 	</td>
 </tr>
