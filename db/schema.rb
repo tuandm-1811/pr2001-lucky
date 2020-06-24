@@ -13,16 +13,18 @@
 ActiveRecord::Schema.define(version: 2020_06_24_025242) do
 
   create_table "carts", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "product_carts_id", null: false
+    t.integer "users_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "total_amount"
-    t.index ["product_carts_id"], name: "index_carts_on_product_carts_id"
-    t.index ["product_id"], name: "index_carts_on_product_id"
+    t.index ["users_id"], name: "index_carts_on_users_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.string "url"
     t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
@@ -39,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_025242) do
     t.integer "total_product"
     t.integer "product_id", null: false
     t.integer "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_product_carts_on_cart_id"
     t.index ["product_id"], name: "index_product_carts_on_product_id"
   end
@@ -50,11 +54,13 @@ ActiveRecord::Schema.define(version: 2020_06_24_025242) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rate"
+    t.integer "sum_rate"
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "sum_rating"
+    t.integer "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,8 +74,6 @@ ActiveRecord::Schema.define(version: 2020_06_24_025242) do
     t.boolean "admin", default: false
   end
 
-  add_foreign_key "carts", "product_carts", column: "product_carts_id"
-  add_foreign_key "carts", "products"
   add_foreign_key "images", "products"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"

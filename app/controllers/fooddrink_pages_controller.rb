@@ -1,2 +1,0 @@
-class FooddrinkPagesController < ApplicationController
-end
