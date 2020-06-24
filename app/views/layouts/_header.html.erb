@@ -1,0 +1,62 @@
+<header>	
+	<div class="container-fluid">	
+		<div class="place-logo">
+			<div class="row">
+				<div class=" col-md-7 col-sm-7">
+					<nav class="navbar navbar-expand-lg justify-content-end">
+						<%= link_to "#", class:"navbar-brand" do%>
+							<h2 class="awesome">AWESOME</h2>
+						<% end %>
+					</nav>
+				</div>
+				<div class=" col-md-4 col-sm-4	">
+					<nav class="navbar navbar-expand-lg justify-content-end">
+						<div class="sosial">
+							<%= link_to "#" ,class:"icon" do%>
+								<i class='fas fa-user-alt' style='font-size:24px'></i>
+							<% end %>
+							<%= link_to "#" ,class:"icon" do%>
+								<i class="fa fa-heart" style="font-size:24px"></i>
+							<% end %>
+							<%= link_to "#" ,class:"icon" do%>
+								<i class="fa fa-shopping-cart" style="font-size:24px"></i>
+							<% end %>
+						</div>
+						<form class="form-inline my-2 my-lg-0" >
+						    <div class="input-group" style="position: fixed;">
+						      <input type="text" class="form-control" placeholder="What are you looking for?">
+						      <button type="button" class="btn btn-outline-dark">Search</button>
+						    </div>
+				  		</form>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="container-fluid">
+	    <nav class="navbar navbar-expand-sm navbar-light justify-content-center">
+	            <div class="content-header">
+	                <ul class="nav navbar-nav justify-content-center">
+	                    <li class="nav-item">
+	                        <%= link_to "HOME","#" , class: "nav-link"%>
+	                    </li>
+	                    <li class="nav-item">
+	                        <%= link_to  "MENU", "#", class: "nav-link" %>
+	                    </li>
+	                    <li class="nav-item">
+	                        <%= link_to  "PAGES","#" , class: "nav-link" %>
+	                    </li>
+	                    <li class="nav-item">
+	                        <%= link_to  "BLOG", "#", class: "nav-link" %>   
+	                    </li>
+	                    <li class="nav-item">
+	                        <%= link_to  "ABOUT US","#", class: "nav-link" %>   
+	                    </li>
+	                    <li class="nav-item sale">
+	                        <%= link_to  "SALE","#", class: "nav-link" %>   
+	                    </li>
+	                </ul>
+	            </div>
+	    </nav>
+	</div>
+</header>

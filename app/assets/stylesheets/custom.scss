@@ -1,0 +1,63 @@
+@import "bootstrap";
+/*header*/
+.nav-item{
+    font-family: 'Tenali Ramakrishna', sans-serif;
+}
+.nav-link{
+    font-size: 20px !important;
+}
+.navbar{
+    height: 40px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important;
+}
+.icon{
+    color: black;
+}
+.icon:hover{
+    color: gray;
+}
+#first-page{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.nav-link{
+    color: black;
+}
+.awesome{
+    text-shadow: 2px 2px;
+    color: black;
+    font-family: 'Metal Mania', cursive;
+}
+.form-control{
+    border: 0px !important;
+    background-color: rgba(227, 238, 249, 0.25) !important;
+    height: 33px !important;
+}
+/*//content footer*/
+.footer{
+    clear: both;
+    position: relative;
+    background-color: #eaeaea;
+    margin-top: 1em;
+}
+.part-1{
+    height: 20em;
+    width: 15em;
+}
+.tradmark{
+    list-style-type: none;
+}
+.link{
+    color: black;
+}
+b{
+    font-size: 21px;
+}
+.reply{
+    height: 34px !important
+}
+.fb{
+    padding-left: 13px;
+    margin-right: 16px;
+}

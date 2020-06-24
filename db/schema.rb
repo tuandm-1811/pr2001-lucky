@@ -13,24 +13,34 @@
 ActiveRecord::Schema.define(version: 2020_06_24_025242) do
 
   create_table "carts", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "product_carts_id", null: false
     t.integer "total_amount"
-    t.index "\"product_id\", \"productcart_id\"", name: "index_carts_on_product_id_and_productcart_id"
+    t.index ["product_carts_id"], name: "index_carts_on_product_carts_id"
+    t.index ["product_id"], name: "index_carts_on_product_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.string "url"
-    t.index "\"product_id\"", name: "index_images_on_product_id"
+    t.integer "product_id", null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "address"
-    t.index "\"user_id\", \"cart_id\"", name: "index_orders_on_user_id_and_cart_id"
+    t.integer "user_id", null: false
+    t.integer "cart_id", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "product_carts", force: :cascade do |t|
     t.integer "quantity"
     t.integer "total_product"
-    t.index "\"product_id\", \"cart_id\"", name: "index_product_carts_on_product_id_and_cart_id"
+    t.integer "product_id", null: false
+    t.integer "cart_id", null: false
+    t.index ["cart_id"], name: "index_product_carts_on_cart_id"
+    t.index ["product_id"], name: "index_product_carts_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -45,7 +55,6 @@ ActiveRecord::Schema.define(version: 2020_06_24_025242) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "sum_rating"
-    t.index "\"product_id\"", name: "index_ratings_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,4 +68,11 @@ ActiveRecord::Schema.define(version: 2020_06_24_025242) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "carts", "product_carts", column: "product_carts_id"
+  add_foreign_key "carts", "products"
+  add_foreign_key "images", "products"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "users"
+  add_foreign_key "product_carts", "carts"
+  add_foreign_key "product_carts", "products"
 end
