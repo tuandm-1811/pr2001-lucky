@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_133853) do
+ActiveRecord::Schema.define(version: 2020_06_24_025242) do
 
   create_table "carts", force: :cascade do |t|
-    t.integer "sumcart"
+    t.integer "total_amount"
     t.index "\"product_id\", \"productcart_id\"", name: "index_carts_on_product_id_and_productcart_id"
   end
 
@@ -36,15 +36,16 @@ ActiveRecord::Schema.define(version: 2020_06_23_133853) do
   create_table "products", force: :cascade do |t|
     t.string "name_product"
     t.text "information"
-    t.integer "rating"
     t.integer "price"
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rate"
   end
 
   create_table "ratings", force: :cascade do |t|
     t.integer "sum_rating"
+    t.index "\"product_id\"", name: "index_ratings_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
