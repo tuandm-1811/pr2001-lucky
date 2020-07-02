@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<aside class="col-md-4">
+			<section class="info-product"> 
+				<h2>
+					<%= @product.name_product%>
+				</h2>
+			</section>
+		</aside>
+		<aside class="col-md-8">
+			<section class="product-details">
+				<h4 class="desciption">DESCRIPTION</h4>
+					<span class="text"> <%= @product.information%></span>
+				<h4 class="price">PRICE</h4>
+					<span class="$"><%= @product.price %> $</span>
+				<h4 class="type">TYPE</h4>
+					<span class="kind"> <%= @product.type%></span>
+			</section>
+		</aside>
+	</div>
+</div>

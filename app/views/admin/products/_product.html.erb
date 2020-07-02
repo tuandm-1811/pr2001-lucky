@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">	
+		<div class="col-md-3 col-sm-3 col-12 ">
+			<div class="product-<%= product.id %>">
+				<span class="name-product"> <%= product.name_product%> </span>
+				<span class="information"> <%= product.information%> </span>
+				<span class="price"> $<%= product.price%> </span>
+				<span class="type"> <%= product.type%> </span>
+				<%= link_to "Delete product", product , method: :delete, data: {confirm: "You sure"} %>
+			</div>
+		</div>
+	</div>
+</div>

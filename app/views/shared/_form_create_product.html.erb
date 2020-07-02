@@ -1,0 +1,15 @@
+<%= form_for :product , url:admin_products_path do |f| %>
+    <div class="field">
+        <%= f.text_field :name_product , placeholder:"Enter name product" %>
+    </div>
+    <div class="text">
+        <%= f.text_area :information ,  placeholder:"Enter desciption"%>
+    </div>
+    <div class="field">
+        <%= f.text_field :price , placeholder:"Enter price product"%>
+    </div>
+    <div class="field">
+        <%= f.select :type, product_types , placeholder:"Enter type product" %>
+    </div>
+    <%= f.submit "Create product", class: "btn btn-primary" %>
+<% end %>
