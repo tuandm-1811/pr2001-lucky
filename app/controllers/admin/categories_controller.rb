@@ -1,15 +1,9 @@
 # frozen_string_literal: true
-
 class Admin::CategoriesController < Admin::BaseController
+  before_action :set_category , only: [:edit , :update]
   def index
     @categories = Category.all.page(params[:page]).per(3)
   end
-
-  def show
-    @category = Category.find(params[:id])
-    @products = @category.products.page(params[:page]).per(3)
-  end
-
   def new
     @category = Category.new
   end
@@ -20,20 +14,20 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:success] = 'Add successfully'
       redirect_to new_admin_product_path
     else
+      flash[:danger] = 'Add fails'
       render :new
     end
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
       flash[:success] = 'Update successfully'
       redirect_to admin_categories_path
     else
+      flash[:danger] = 'Update fails'
       render :edit
     end
   end
@@ -48,5 +42,8 @@ class Admin::CategoriesController < Admin::BaseController
 
   def category_params
     params.require(:category).permit :name_category
+  end
+  def set_category
+     @category = Category.find(params[:id])
   end
 end

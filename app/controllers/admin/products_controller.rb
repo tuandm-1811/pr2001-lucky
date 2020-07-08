@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Admin::ProductsController < Admin::BaseController
+	before_action :get_product ,only: [:show , :edit , :update]
   def index
     @products = Product.all.page(params[:page]).per(3)
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -24,16 +24,15 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
-  def edit
-    @product = Product.find(params[:id])
+  def edit   
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update product_params
       flash[:success] = 'Update Successfuly'
-      redirect_to admin_products_path
+      redirect_to admin_categories_path
     else
+    	flash[:alert] = 'Product could not be Update'
       render :edit
     end
   end
@@ -45,8 +44,10 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   private
-
   def product_params
     params.require(:product).permit :name_product, :information, :price, :type, :category_id
+  end
+  def get_product
+  	@product = Product.find(params[:id])
   end
 end
