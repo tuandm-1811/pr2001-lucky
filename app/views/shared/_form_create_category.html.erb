@@ -1,0 +1,9 @@
+<div class="container">
+<%= form_for @category , url:admin_categories_path  do |f|%>
+  <%= render 'shared/error_messages', object: f.object%>
+  <div class="create-category">
+    <%= f.text_field :name_category, placeholder:"Add category" %>
+  </div>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
+</div>

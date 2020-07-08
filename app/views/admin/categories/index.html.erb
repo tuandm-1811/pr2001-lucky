@@ -1,6 +1,12 @@
-<h2>Category</h2>
-<ul class="category">
-    <% @categories.each do |category| %>
-        <%= render @categoies%>
-    <% end %>
-</ul>
+<div class="container">
+    <h2>CATEGORIES</h2>
+	<table id="products">
+		 <tr>
+		 	<th>ID</th>
+		 	<th>Name</th>
+		 	<th>Action</th>
+		 </tr>
+		<%= render @categories%>
+	</table>
+	<%=link_to "Create new caregory",new_admin_category_path,class: "btn btn-primary"%>
+</div>

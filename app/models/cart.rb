@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
-    has_one :orders
-    belongs_to :product_carts
+    has_one :order
+    belongs_to :product_cart
 end

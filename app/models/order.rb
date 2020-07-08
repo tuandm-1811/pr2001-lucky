@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-    belongs_to :users
-    belongs_to :carts
+    belongs_to :user
+    belongs_to :cart
 end

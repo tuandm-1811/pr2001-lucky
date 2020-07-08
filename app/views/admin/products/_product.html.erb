@@ -1,13 +1,15 @@
-<div class="container">
-	<div class="row">	
-		<div class="col-md-3 col-sm-3 col-12 ">
-			<div class="product-<%= product.id %>">
-				<span class="name-product"> <%= product.name_product%> </span>
-				<span class="information"> <%= product.information%> </span>
-				<span class="price"> $<%= product.price%> </span>
-				<span class="type"> <%= product.type%> </span>
-				<%= link_to "Delete product", product , method: :delete, data: {confirm: "You sure"} %>
-			</div>
-		</div>
-	</div>
-</div>
+<tr>
+	<td><%= product.name_product%></td>
+	<td><%= product.information%></td>
+	<td>$<%= product.price%> </td>
+	<td><%= product.type%></td>
+	<td><%=product.category.name_category%> </td>
+	<td>
+		<%= link_to edit_admin_product_path(product) do %>
+		  <i class='fas fa-edit' style='font-size:24px'></i>
+    <% end %>
+		<%= link_to admin_product_path(product), method: :delete do%>
+			<i class='far fa-trash-alt' style='font-size:24px'></i>
+		<% end %>
+	</td>
+</tr>

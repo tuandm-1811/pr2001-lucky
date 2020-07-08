@@ -1,4 +1,16 @@
-// Place all the styles related to the admin/base controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
 @import "bootstrap";
+#products{
+	border-collapse: collapse;
+  	width: 100%;
+}
+#products td, #products th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#products tr:hover {background-color: #ddd;}
+#products th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+}

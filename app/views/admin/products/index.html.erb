@@ -1,6 +1,17 @@
-<h2>All Products</h2>
-	<ul class="product">
+<div class="container">
+	<h2>All Products</h2>
+	<table id="products">
+		<tr>
+			<th>NAME PRODUCT</th>
+			<th>INFORMATION</th>
+			<th>PRICE</th>
+			<th>TYPE</th>
+			<th>CATEGORY</th>
+			<th>ACTION</th>
+		</tr>
 		<% @products.each do |product|%>
-			<%= render @products %>
+			<%= render 'product' , product: product%>
 		<% end %>
-	</ul>
+	</table>
+	<%=link_to "Create new product",new_admin_product_path,class: "btn btn-primary"%>
+</div>

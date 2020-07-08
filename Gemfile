@@ -23,7 +23,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
 # # gem 'annotate'
-gem 'devise'
+gem 'kaminari'      
+gem 'rubocop'
+gem 'ransack'     #tạo form tìm kiếm
+gem 'bootstrap-kaminari-views' #giao diện đẹp cho phân trang
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
