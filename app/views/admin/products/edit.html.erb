@@ -1,0 +1,23 @@
+<h3>UPDATE PRODUCT</h3>
+<div class="container">
+    <%= form_for :product , url:admin_product_path(@product), method: :patch do |f| %>
+        <%= render 'shared/error_messages', object: @product %>
+        <div class="field">
+            <%= f.text_field :name_product , placeholder:"Enter name product" %>
+        </div>
+        <div class="text">
+            <%= f.text_area :information ,  placeholder:"Enter desciption"%>
+        </div>
+        <div class="field">
+            <%= f.text_field :price , placeholder:"Enter price product"%>
+        </div>
+        <div class="field">
+            <%= f.select :type, product_types %>
+        </div>
+        <div class="caregory">
+            <%= f.select :category_id, Category.all.collect {|u| [u.name_category, u.id]}, :prompt => 'Select' %>
+        </div>
+        
+        <%= f.submit "Update product", class: "btn btn-primary" %>
+    <% end %>
+</div>

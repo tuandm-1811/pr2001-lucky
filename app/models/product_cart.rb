@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class ProductCart < ApplicationRecord
-    belongs_to :products
-    has_one :carts
+  belongs_to :product
+  has_one :cart
 end

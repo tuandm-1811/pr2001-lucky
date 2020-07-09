@@ -1,11 +1,15 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-	get "awesome/home" => "fooddrink_pages#home" 
-	get "awesome/menu" => "fooddrink_pages#menu" 
-	get "awesome/pages" => "fooddrink_pages#pages" 
-	get "awesome/sale" => "fooddrink_pages#sale"
-	get "awesome/blog" => "fooddrink_pages#blog" 
-	get "awesome/aboutus" => "fooddrink_pages#about_us"
-	root "fooddrink_pages#home"  
-  	resources :users
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  root 'admin/sessions#new'
+  namespace :admin do
+    resources :products
+    resources :categories
+    resources :users
+    resource :sessions
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
