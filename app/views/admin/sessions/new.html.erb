@@ -1,15 +1,34 @@
 <div class="container">
-  <h1>Log in</h1>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="main">
+      <h3>Wellcome Admin</h3>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+        </div>
+      </div>
+      <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+      </div>
       <%= form_for :session, url: admin_sessions_path do |f| %>
-
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control" %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-
+        <div class="form-group">
+          <%= f.label :Email %>
+          <%= f.email_field :email, class: "form-control", id: "inputUsernameEmail" %>
+        </div>
+        <div class="form-group">
+          <a class="pull-right" href="#">Forgot password?</a>
+          <%= f.label :Password %>
+          <%= f.password_field :password, class: "form-control", id:"inputPassword" %>
+        </div>
+        <div class="checkbox pull-right">
+          <label>
+            <input type="checkbox">
+            Remember me </label>
+        </div>
         <%= f.submit "Log in", class: "btn btn-primary" %>
       <% end %>
     </div>

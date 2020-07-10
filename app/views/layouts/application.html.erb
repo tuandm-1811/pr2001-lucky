@@ -4,12 +4,16 @@
     <title>Pr2001-Lucky</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-      <%= yield %>
+    <% if  logged_in? %>
+      <%= render 'layouts/header_admin' %>
+    <% end %>
+    <%= yield %>
   </body>
 </html>
