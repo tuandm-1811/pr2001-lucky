@@ -1,18 +1,20 @@
-class SessionsController < ApplicationController
-    def new
-    end
+# frozen_string_literal: true
 
-    def create
-        user = User.find_by(email: params[:session][:email].downcase)
-        if user &.authenticate(params[:session][:password])
-          redirect_to root_path
-        else
-          flash[:danger] = 'Invalid email/password combination'
-          render :new
-        end
+class SessionsController < ApplicationController
+  def new; end
+
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user &.authenticate(params[:session][:password])
+      redirect_to root_path
+    else
+      flash[:danger] = 'Invalid email/password combination'
+      render :new
     end
-    def destroy
-        log_out if logged_in?
-        redirect_to root_path
-    end
+  end
+
+  def destroy
+    log_out if logged_in?
+    redirect_to root_path
+  end
 end

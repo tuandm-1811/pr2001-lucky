@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get 'myfood/signup', to: 'users#new'
   get 'myfood/login', to: 'sessions#new'
   post 'myfood/login', to: 'sessions#create'
-  resources :users, only: [:new, :create, :update, :edit]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: %i[new create update edit]
+  resources :sessions, only: %i[new create destroy]
   root 'myfood#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
