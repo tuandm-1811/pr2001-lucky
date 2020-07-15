@@ -14,7 +14,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.save
       log_in @user
       flash[:success] = 'User created successfuly'
-      redirect_to admin_users_path
+      redirect_to myfood_login_path
     else
       render :new
     end

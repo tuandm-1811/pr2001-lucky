@@ -1,0 +1,2 @@
+module MyfoodHelper
+end
