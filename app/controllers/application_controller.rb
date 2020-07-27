@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  def current_user
-    User.first || User.create!(user_name: 'bach', email: 'tvb@gmail.com', password: '12', password_confirmation: '12')
+  include SessionsHelper
+  def logged_in_user
+    unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+    end
   end
 end

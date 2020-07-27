@@ -9,7 +9,7 @@ module Admin::SessionsHelper
     @current_admin ||= User.find_by(id: session[:current_admin_id]) if session[:current_admin_id]
   end
 
-  def logged_in? # Returns true if the user is logged in
+  def admin_logged_in? # Returns true if the user is logged in
     !current_admin.nil?
   end
 

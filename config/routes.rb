@@ -10,11 +10,15 @@ Rails.application.routes.draw do
     resources :users
     resources :sessions, only: %i[new create destroy]
   end
-  get 'myfood/signup', to: 'users#new'
+  post 'myfood/signup', to: 'users#new'
   get 'myfood/login', to: 'sessions#new'
+  get 'myfood/edit'
+  get 'users/new'
   post 'myfood/login', to: 'sessions#create'
-  resources :users, only: %i[new create update edit]
-  resources :sessions, only: %i[new create destroy]
+  delete 'myfood/logout', to: 'sessions#destroy'
+
+  resources :users, only: %i[:new, :create, :update, :edit]
+  resources :sessions, only: [:new, :create, :destroy]
   root 'myfood#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

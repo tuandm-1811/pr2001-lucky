@@ -11,9 +11,26 @@
   </head>
 
   <body>
-    <% if  logged_in? %>
-      <%= render 'layouts/header_admin' %>
-    <% end %>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= link_to "My Food Page",root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Log in", myfood_login_url, method: :get %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <% if  admin_logged_in? %>
+        <%= render 'layouts/header_admin' %>
+      <%  elsif user_logged_in? %>
+      <%= render 'layouts/header_user' %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
