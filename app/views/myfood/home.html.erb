@@ -10,38 +10,19 @@
     <aside class="col-md-4">
     </aside>
   </div>
+  <section class= 'user_info'>
+    <%= render 'shared/user_info' %>
+  </section>
 <% else %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="views/myfood/home.html">MyFoodPage</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+<strong><%= link_to  "My Food Page", root_path %> </strong>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to "Log in", myfood_login_url, method: :get %>
       </li>
-      <li class= "nav-item">
-  
-      </li>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Account
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <%= link_to "Profile", users_new_path, class: "dropdown-item" %>
-    <%= link_to "Setting", "#",class: "dropdown-item" %>
-    <%= link_to "Update",edit_user_path ,class: "dropdown-item" %>
-    <%= link_to "Log out", myfood_logout_path, method: :delete,class: "dropdown-item" %>
-  </div>
-</div>  
-
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
+</body>
 <% end %>

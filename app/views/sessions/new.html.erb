@@ -10,7 +10,7 @@
             <%= f.label :remember_me, class: "checkbox inline" do %>
             <%= f.submit "Log in", class: "btn btn-primary" %>
         <% end %>
-        <p>New user? <%= link_to "Sign up now!", myfood_signup_path, method: :post %></p>
+        <p>New user? <%= link_to "Sign up now!", myfood_signup_url, method: :get %></p>
     </div>
     <% end %>
 </div>

@@ -2,6 +2,7 @@
 
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       remember user
       log_in user
-      redirect_to root_path
+      redirect_to user
     else
       flash[:danger] = 'Invalid email/password combination'
       render 'new'
@@ -17,7 +18,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    puts params 
     log_out if logged_in?
     redirect_to root_url 
   end 

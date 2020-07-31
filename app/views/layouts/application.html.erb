@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pr2001-Lucky</title>
+    <title>My Food </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+      <div class="container-fluid">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,25 +15,14 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
-        <% end %>
-        <%= link_to "My Food Page",root_path, id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Log in", myfood_login_url, method: :get %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <div class="container">
-      <% if  admin_logged_in? %>
-        <%= render 'layouts/header_admin' %>
-      <%  elsif user_logged_in? %>
+    <% if  admin_logged_in? %>
+      <%= render 'layouts/header_admin' %>
+    <%  elsif logged_in? %>
       <%= render 'layouts/header_user' %>
-      <% end %>
+    <% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %><div class="container">
       <%= yield %>
     </div>
   </body>

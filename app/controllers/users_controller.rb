@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :index]
   before_action :correct_user, only: [:edit, :update]
   def new
     @user = User.new
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = 'User created'
-      redirect_to 
+      redirect_to @user
     else
       flash[:danger] = 'User not created'
       render 'new'
@@ -25,7 +25,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-
+  def index
+    @users = User.all
+    @users = User.paginate(page: params[:page])
+  end
   def update
     if @user.update(user_params)
       flash[:success] = 'user updated'
@@ -42,10 +45,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :email, :password, :password_confirm)
+    params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
   end
-
-  def get_user
-    user = User.find_by(params[:id])
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
+  end
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end

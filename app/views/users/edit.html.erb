@@ -3,9 +3,9 @@
 <h1>Update your profile</h1>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <%= form_for(edit_user_path) do |f| %>
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
+        <%= form_for(@user) do |f| %>            
+            <%= f.label :user_name %>
+            <%= f.text_field :user_name, class: 'form-control' %>
             <%= f.label :email %>
             <%= f.email_field :email, class: 'form-control' %>
             <%= f.label :password %>
