@@ -2,7 +2,7 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <title><%= yield(:title) %> | My Food Pages </title>
+      <title><%= yield(:title) %> | My Food Page </title>
   </head>
 <body>
 <% if logged_in? %>
@@ -15,7 +15,7 @@
   </section>
 <% else %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<strong><%= link_to  "My Food Page", root_path %> </strong>
+<h2><%= link_to  "My Food Page", root_path %> </h2>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">

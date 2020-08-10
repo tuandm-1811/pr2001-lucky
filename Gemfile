@@ -26,10 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
 gem 'will_paginate', '3.1.8'
 gem 'bootstrap-will_paginate','1.0.0'
-gem "devise" #login with social media
-gem "omniauth"
-gem "omniauth-google-oauth2"
-gem "omniauth-facebook"
+
 
 # # gem 'annotate'
 gem 'bootstrap4-kaminari-views' # giao diện đẹp cho phân trang

@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
   has_many :orders
   has_many :ratings
   has_secure_password
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_save { self.email = email.downcase }
+  attr_accessor :remember_token, :activation_token
+  before_save                    :downcase_email
+  before_create                  :create_activation_digest
   validates :user_name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -53,20 +52,25 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-  def self.new_with_session params, session
-    super.tap do |user|
-      if data = session["devise.facebook_data"] &&
-        session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
-  end
 
-  def self.from_omniauth auth
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name
-    end
+  private
+  def downcase_email
+    self.email = email.downcase
+  end
+  def activate
+    update_attribute(:activated,true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+  def create_activation_digest
+    self.activation_token = User.new_token
+  end
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+    # update dc 1 attribute cua object do 
+    # update_at van cap nhap 
+    # callback van chay
+    # bo qua validate
   end
 end
