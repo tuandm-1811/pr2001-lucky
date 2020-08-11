@@ -6,12 +6,25 @@
         <%= form_for(@user) do |f| %>            
             <%= f.label :user_name %>
             <%= f.text_field :user_name, class: 'form-control' %>
+
             <%= f.label :email %>
             <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.radio_button :sex, "male" %>
+            <%= label :sex, 'Male' %><br>
+
+            <%= f.radio_button :sex, "Female" %>
+            <%= label :sex, 'Female' %><br>
+
+            <%= f.radio_button :sex, "Other" %>
+            <%= label :sex, 'Other' %><br>
+
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
+
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
+
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
     </div>

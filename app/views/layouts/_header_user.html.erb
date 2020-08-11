@@ -11,7 +11,6 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <%= link_to "Profile", current_user, class: "dropdown-item" %>
-                <%= link_to "Users", users_path, class: "dropdown-item" %>
                 <%= link_to "Update your Profile", edit_user_url(current_user),class: "dropdown-item" %>
                 <%= link_to "Log out", myfood_logout_path, method: :delete,class: "dropdown-item" %>
               </div>

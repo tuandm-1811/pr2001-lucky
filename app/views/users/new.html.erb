@@ -9,12 +9,21 @@
             <%= f.label :email %>
             <%= f.email_field :email, class: "form-control" %>
 
+            <%= f.radio_button :sex, "male" %>
+            <%= label :sex, 'Male' %>
+
+            <%= f.radio_button :sex, "Female" %>
+            <%= label :sex, 'Female' %>
+
+            <%= f.radio_button :sex, "Other" %>
+            <%= label :sex, 'Other' %>
+
             <%= f.label :password %>
             <%= f.password_field :password, class: "form-control" %>
 
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation, class: "form-control" %>
-
+    
             <%= f.submit "Create my account", class: "btn btn-primary" %>
         <% end %>
     </div>
